@@ -1,0 +1,238 @@
+<project>
+    <groupId>edu.berkeley</groupId>
+    <artifactId>simple-project</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+    <name>Simple Project</name>
+    <packaging>jar</packaging>
+    <version>1.0</version>
+
+    <properties>
+        <hbase.version>1.2.5</hbase.version>
+        <scala.version>2.10.6</scala.version>
+        <scala.binary.version>2.10</scala.binary.version>
+    </properties>
+
+    <dependencies>
+        <dependency> <!-- Spark dependency -->
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_${scala.binary.version}</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>it.nerdammer.bigdata</groupId>
+            <artifactId>spark-hbase-connector_2.10</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_2.10</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>graphframes</groupId>
+            <artifactId>graphframes</artifactId>
+            <version>0.5.0-spark1.6-s_2.10</version>
+        </dependency>
+
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.hbase</groupId>-->
+            <!--<artifactId>hbase-spark</artifactId>-->
+            <!--<version>1.2.0-cdh5.9.0</version>-->
+        <!--</dependency>-->
+
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>hbase-spark</id>
+            <url>https://repository.cloudera.com/content/repositories/releases/</url>
+        </repository>
+    </repositories>
+
+</project>
+
+
+<!--<project>-->
+    <!--<groupId>edu.berkeley</groupId>-->
+    <!--<artifactId>simple-project</artifactId>-->
+    <!--<modelVersion>4.0.0</modelVersion>-->
+    <!--<name>Simple Project</name>-->
+    <!--<packaging>jar</packaging>-->
+    <!--<version>1.6.1</version>-->
+
+    <!--<properties>-->
+        <!--<PermGen>64m</PermGen>-->
+        <!--<MaxPermGen>512m</MaxPermGen>-->
+        <!--<CodeCacheSize>512m</CodeCacheSize>-->
+
+        <!--<scala.version>2.10.5</scala.version>-->
+        <!--<scala.binary.version>2.10</scala.binary.version>-->
+
+        <!--<project.version>1.6.1</project.version>-->
+        <!--<hadoop.version>2.6.0</hadoop.version>-->
+        <!--<hbase.version>1.2.5</hbase.version>-->
+    <!--</properties>-->
+
+    <!--<dependencies>-->
+        <!--<dependency> &lt;!&ndash; Spark dependency &ndash;&gt;-->
+            <!--<groupId>org.apache.spark</groupId>-->
+            <!--<artifactId>spark-core_2.10</artifactId>-->
+            <!--<version>1.6.1</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.hbase</groupId>-->
+            <!--<artifactId>hbase-client</artifactId>-->
+            <!--<version>${hbase.version}</version>-->
+        <!--</dependency>-->
+
+    <!--</dependencies>-->
+
+
+    <!--<build>-->
+        <!--<outputDirectory>target/scala-${scala.binary.version}/classes</outputDirectory>-->
+        <!--<testOutputDirectory>target/scala-${scala.binary.version}/test-classes</testOutputDirectory>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-compiler-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<source>1.8</source>-->
+                    <!--<target>1.8</target>-->
+                    <!--<encoding>UTF-8</encoding>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>net.alchim31.maven</groupId>-->
+                <!--<artifactId>scala-maven-plugin</artifactId>-->
+                <!--<version>3.2.2</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>eclipse-add-source</id>-->
+                        <!--<goals>-->
+                            <!--<goal>add-source</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                    <!--<execution>-->
+                        <!--<id>scala-compile-first</id>-->
+                        <!--<phase>process-resources</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>compile</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                    <!--<execution>-->
+                        <!--<id>scala-test-compile-first</id>-->
+                        <!--<phase>process-test-resources</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>testCompile</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                    <!--<execution>-->
+                        <!--<id>attach-scaladocs</id>-->
+                        <!--<phase>verify</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>doc-jar</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<configuration>-->
+                    <!--<scalaVersion>${scala.version}</scalaVersion>-->
+                    <!--<recompileMode>incremental</recompileMode>-->
+                    <!--<useZincServer>true</useZincServer>-->
+                    <!--<args>-->
+                        <!--<arg>-unchecked</arg>-->
+                        <!--<arg>-deprecation</arg>-->
+                        <!--<arg>-feature</arg>-->
+                    <!--</args>-->
+                    <!--<jvmArgs>-->
+                        <!--<jvmArg>-Xms1024m</jvmArg>-->
+                        <!--<jvmArg>-Xmx1024m</jvmArg>-->
+                        <!--<jvmArg>-XX:PermSize=${PermGen}</jvmArg>-->
+                        <!--<jvmArg>-XX:MaxPermSize=${MaxPermGen}</jvmArg>-->
+                        <!--<jvmArg>-XX:ReservedCodeCacheSize=${CodeCacheSize}</jvmArg>-->
+                    <!--</jvmArgs>-->
+                    <!--<javacArgs>-->
+                        <!--<javacArg>-source</javacArg>-->
+                        <!--<javacArg>${java.version}</javacArg>-->
+                        <!--<javacArg>-target</javacArg>-->
+                        <!--<javacArg>${java.version}</javacArg>-->
+                        <!--<javacArg>-Xlint:all,-serial,-path</javacArg>-->
+                    <!--</javacArgs>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-deploy-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<skip>true</skip>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-install-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<skip>true</skip>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-shade-plugin</artifactId>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>shade</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<configuration>-->
+                    <!--<shadedArtifactAttached>false</shadedArtifactAttached>-->
+                    <!--<outputFile>${project.build.directory}/spark-examples-${project.version}-hadoop${hadoop.version}.jar</outputFile>-->
+                    <!--<artifactSet>-->
+                        <!--<includes>-->
+                            <!--<include>*:*</include>-->
+                        <!--</includes>-->
+                    <!--</artifactSet>-->
+                    <!--<filters>-->
+                        <!--<filter>-->
+                            <!--<artifact>*:*</artifact>-->
+                            <!--<excludes>-->
+                                <!--<exclude>META-INF/*.SF</exclude>-->
+                                <!--<exclude>META-INF/*.DSA</exclude>-->
+                                <!--<exclude>META-INF/*.RSA</exclude>-->
+                            <!--</excludes>-->
+                        <!--</filter>-->
+                    <!--</filters>-->
+                    <!--<transformers>-->
+                        <!--<transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />-->
+                        <!--<transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">-->
+                            <!--<resource>reference.conf</resource>-->
+                        <!--</transformer>-->
+                        <!--<transformer implementation="org.apache.maven.plugins.shade.resource.DontIncludeResourceTransformer">-->
+                            <!--<resource>log4j.properties</resource>-->
+                        <!--</transformer>-->
+                    <!--</transformers>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
+
+    <!--<profiles>-->
+    <!--<profile>-->
+        <!--<id>kinesis-asl</id>-->
+        <!--<dependencies>-->
+            <!--<dependency>-->
+                <!--<groupId>org.apache.spark</groupId>-->
+                <!--<artifactId>spark-streaming-kinesis-asl_${scala.binary.version}</artifactId>-->
+                <!--<version>${project.version}</version>-->
+            <!--</dependency>-->
+        <!--</dependencies>-->
+    <!--</profile>-->
+    <!--</profiles>-->
+
+<!--</project>-->
